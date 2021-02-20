@@ -248,8 +248,5 @@ if __name__ == '__main__':
     # movie that is not in dataset
     print(rec.make_recs(1))
     print("Users on the dataset: ", rec.n_users)
-    #print(rec.n_users)
     print("Movies on the dataset: ", rec.n_movies)
-    #print(rec.n_movies)
     print("Ratings on the dataset: ", rec.num_ratings)
-    #print(rec.num_ratings)
