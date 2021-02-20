@@ -3,6 +3,7 @@ import pandas as pd
 import recommender_functions as rf
 import sys # can use sys to take command line arguments
 
+
 class Recommender():
     '''
     This Recommender uses FunkSVD to make predictions of exact ratings.  And uses either FunkSVD or a Knowledge Based recommendation (highest ranked) to make recommendations for users.  Finally, if given a movie, the recommender will provide movies that are most similar as a Content Based Recommender.
@@ -11,7 +12,6 @@ class Recommender():
         '''
         I didn't have any required attributes needed when creating my class.
         '''
-
 
     def fit(self, reviews_pth, movies_pth, latent_features=12, learning_rate=0.0001, iters=100):
         '''
@@ -182,7 +182,7 @@ if __name__ == '__main__':
     rec = r.Recommender()
 
     # fit recommender
-    rec.fit(reviews_pth='data/train_data.csv', movies_pth= 'data/movies_clean.csv', learning_rate=.01, iters=1)
+    rec.fit(reviews_pth='/Users/petanth/PycharmProjects/Data-Scientist-Nanodegree/Experimental Design & Recommendations/Recommendation module/train_data.csv', movies_pth='/Users/petanth/PycharmProjects/Data-Scientist-Nanodegree/Experimental Design & Recommendations/Recommendation module/movies_clean.csv', learning_rate=.01, iters=2)
 
     # predict
     rec.predict_rating(user_id=8, movie_id=2844)
