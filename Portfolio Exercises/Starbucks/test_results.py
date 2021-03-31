@@ -25,3 +25,21 @@ def test_results(promotion_strategy):
     
     print("We came up with a model with an irr of {} and an nir of {} on the test set.\n\n How did you do?".format(0.0188, 189.45))
     return irr, nir
+
+
+# added this function to test our irr and nlr on the validation set
+def valid_results(promotion_strategy, valid_data):
+    df = valid_data[['V1', 'V2', 'V3', 'V4', 'V5', 'V6', 'V7']]
+    promos = promotion_strategy(df)
+    score_df = valid_data.iloc[np.where(promos == 'Yes')]
+    irr, nir = score(score_df)
+    print("Nice job!  See how well your strategy worked on our valid data below!")
+    print()
+    print('Your irr with this strategy is {:0.4f}.'.format(irr))
+    print()
+    print('Your nir with this strategy is {:0.2f}.'.format(nir))
+
+    print(
+        "We came up with a model with an irr of {} and an nir of {} on the test set.\n\n How did you do?".format(0.0188,
+                                                                                                                 189.45))
+    return irr, nir
